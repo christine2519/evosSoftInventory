@@ -1,0 +1,10 @@
+.container1{
+    background-color: aqua;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 100%;
+
+}

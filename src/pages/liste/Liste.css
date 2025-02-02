@@ -1,0 +1,27 @@
+.containerL1{
+    background-color: blanchedalmond;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 5px;
+};
+
+.containerL2{
+    background-color: azure;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 100%;
+}
+
+.containerL3{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    width: 100%; 
+}
