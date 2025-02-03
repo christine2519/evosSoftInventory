@@ -72,11 +72,6 @@ function Liste () {
               nom: "Produit 3" ,
               prix : 123,
             },
-            // {
-            //   id: "P3_2",
-            //   nom: "Produit 3" ,
-            //   prix : 1233,
-            // }
             ],
             nbr_P: 17, 
             stock: 10 

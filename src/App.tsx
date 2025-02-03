@@ -3,7 +3,9 @@ redirect,
 RouterProvider,
 } from "react-router-dom";
 import Liste from "./pages/liste/Liste";
-import Accueil from "./pages/accueil/Accueil";
+import Accueil from "./pages/accueil/accueil";
+import Inventaire from "./pages/inventaire/Inventaire";
+import "./App.css";
 
 
 
@@ -28,6 +30,11 @@ const router = createBrowserRouter([
   {
     path : "/liste",
     element : <Liste />
+  },
+
+  {
+    path : "/inventaire",
+    element : <Inventaire />
   },
 ])
 
