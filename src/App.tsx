@@ -8,18 +8,12 @@ import "./App.css";
 
 
 
-
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-
 const router = createBrowserRouter([
 
   {
-    path : "",
+    path : "/",
     loader: () => redirect("/liste"),
-  },
+  }, 
 
   {
     path : "/liste",
@@ -30,6 +24,12 @@ const router = createBrowserRouter([
     path : "/inventaire",
     element : <Inventaire />
   },
+
+  // {
+  //   path: "*", 
+  //   element: <NotFound />
+  // },
+
 ])
 
 function App() {
