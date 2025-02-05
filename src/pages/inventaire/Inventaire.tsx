@@ -1,7 +1,7 @@
 import React from "react";
 import "./Inventaire.css";
 import { useState } from "react";
-import { useNavigate, UseNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   Button,
   FormControl,
@@ -22,30 +22,21 @@ import { DemoContainer } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-import dayjs, { Dayjs } from 'dayjs';
+import dayjs, { Dayjs } from "dayjs";
 
 import { SelectChangeEvent } from "@mui/material";
-import { produits } from "../../__fake_data/Produits";
-import { magasins } from "../../__fake_data/magasins";
+import { produits } from "../../__fake_data/Prouits";
+import { magasins } from "../../__fake_data/Magasins";
 
 export const INVENTAIRE_STORAGE = "inventaires";
 
 export type Inventaire = {
-    date: string;
-    produitId: string;
-    stock: Record<string, number>;
-  };
+  date: string;
+  produitId: string;
+  stock: Record<string, number>;
+};
 function Inventaire() {
   const navigate = useNavigate();
-  
-
-  //   const produits = [
-  //     { id: "P1", name: "Produit 1" },
-  //     { id: "P2", name: "Produit 2" },
-  //     { id: "P3", name: "Produit 3" },
-  //   ];
-
-  //   const magasins = ["Magasin 1", "Magasin 2", "Magasin 3"];
 
   const [inventaire, setInventaire] = useState<Inventaire>({
     date: "",
@@ -53,10 +44,10 @@ function Inventaire() {
     stock: {},
   });
 
-  console.log({inventaire});
+  console.log({ inventaire });
 
   const handleChangeStock = (magasin: string, stock: number) => {
-    console.log({magasin, stock})
+    console.log({ magasin, stock });
     setInventaire((prevInventaire) => ({
       ...prevInventaire,
       stock: {
@@ -76,7 +67,7 @@ function Inventaire() {
   const handleChangeDate = (date: Dayjs) => {
     setInventaire({
       ...inventaire,
-      date: dayjs(date).toISOString()
+      date: dayjs(date).toISOString(),
     });
   };
 
@@ -85,95 +76,25 @@ function Inventaire() {
 
     const prevInventaires = localStorage.getItem(INVENTAIRE_STORAGE);
     const parsedData = JSON.parse(prevInventaires as string) as Inventaire[];
-    console.log({parsedData})
+    console.log({ parsedData });
 
-    navigate("/liste")
+    navigate("/liste");
 
-    const newInventaires = [...parsedData || [], inventaire]
-    // Avant de sauvegarger, on doit mapper les inventaires,  
-    console.log({newInventaires})
+    const newInventaires = [...(parsedData || []), inventaire];
+
+    console.log({ newInventaires });
     localStorage.setItem(INVENTAIRE_STORAGE, JSON.stringify(newInventaires));
 
     setInventaire((prev) => ({
-        date: prev.date,
-        produitId: '',
-        stock: {}
-    }))
+      date: prev.date,
+      produitId: "",
+      stock: {},
+    }));
   };
-
-//   const handleStorage = () => {
-//     localStorage.setItem(INVENTAIRE_STORAGE, JSON.stringify(inventaire));
-//   };
 
   return (
     <>
       {" "}
-      {/* <div className=" container1">
-        <div className="container2">
-          <h1> Inventaire </h1>
-        </div>
-
-        <div className="container7">
-          <div className="container3">
-            <label htmlFor="date">Date :</label>
-            <input
-              type="date"
-              id="date"
-              value={inventaire.date}
-              onChange={handleChangeDate}
-            />
-          </div>
-
-          <div className="container4">
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label"> Produits</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                value={inventaire.produitId}
-                label="Selectionner un produit"
-                onChange={handleChangeProduit}
-              >
-                {" "}
-                {produits.map((produit) => (
-                  <MenuItem key={produit.id} value={produit.id}>
-                    {produit.nom}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </div>
-
-          {magasins.map((magasin) => (
-            <div className="container5" key={magasin.id}>
-              <TextField
-                id="demo-helper-text-aligned"
-                label={magasin.nom}
-                onChange={(e) =>
-                  handleChangeStock(magasin.id, Number(e.target.value))
-                }
-              />
-              <TextField
-                id="demo-helper-text-aligned-no-helper"
-                label="stock"
-              />
-            </div>
-          ))}
-        </div>
-
-        <div className="container6">
-          <Button
-            variant="contained"
-            color="success"
-            onClick={() => {
-              handleSubmit();
-              handleStorage();
-            }}
-          >
-            Editer
-          </Button>
-        </div>
-      </div> */}
       <Box
         sx={{
           height: "100vh",
@@ -187,15 +108,17 @@ function Inventaire() {
         <Card>
           <CardHeader title="Inventaire" />
           <Divider />
-          <CardContent sx={{backgroundColor: (theme) => theme.palette.primary.main + 10}}>
-            {/* <Box sx={{display: 'flex', alignItems: 'center', flexDirection: 'column', justifyContent: 'center'}}>
-            <Typography variant="h5">Intentaire</Typography>
-        </Box> */}
+          <CardContent
+            sx={{ backgroundColor: (theme) => theme.palette.primary.main + 10 }}
+          >
             <Grid container spacing={2}>
               <Grid item md={12} xs={12}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DemoContainer components={["DatePicker"]}>
-                    <DatePicker label="Selectionnez la date" onChange={(e) => handleChangeDate(e!)}/>
+                    <DatePicker
+                      label="Selectionnez la date"
+                      onChange={(e) => handleChangeDate(e!)}
+                    />
                   </DemoContainer>
                 </LocalizationProvider>
               </Grid>
