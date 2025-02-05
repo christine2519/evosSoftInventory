@@ -3,7 +3,6 @@ redirect,
 RouterProvider,
 } from "react-router-dom";
 import Liste from "./pages/liste/Liste";
-import Accueil from "./pages/accueil/accueil";
 import Inventaire from "./pages/inventaire/Inventaire";
 import "./App.css";
 
@@ -19,12 +18,7 @@ const router = createBrowserRouter([
 
   {
     path : "",
-    loader: () => redirect("/accueil"),
-  },
-
-  {
-    path : "/accueil",
-    element : <Accueil />
+    loader: () => redirect("/liste"),
   },
 
   {

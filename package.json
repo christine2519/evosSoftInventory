@@ -13,13 +13,20 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.2",
     "@mui/material": "^6.4.2",
+    "@mui/x-date-pickers": "^7.25.0",
+    "dayjs": "^1.11.13",
     "formik": "^2.4.6",
+    "i18next": "^24.2.2",
+    "mui-datatables": "^4.3.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-i18next": "^15.4.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@types/mui-datatables": "^4.3.12",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
     "@vitejs/plugin-react": "^4.3.4",
